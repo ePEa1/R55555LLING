@@ -1,0 +1,18 @@
+﻿[
+  {
+    "Id": 101,
+    "SongName": "World Venquisher",
+    "Composer": "void",
+    "Level": [ 3, 9, 13 ],
+    "SongFileName": "World Venquisher",
+    "TrialTime": [ 35.0, 48.0 ]
+  },
+  {
+    "Id": 102,
+    "SongName": "RE:UNION - Duo Blade Against",
+    "Composer": "Ice vs Morimori Atsushi",
+    "Level": [ 5, 12, 15 ],
+    "SongFileName": "ReUnionDuoBlade",
+    "TrialTime": [ 20.0, 45.0 ]
+  }
+]
