@@ -2,26 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace R55555LLING.ePEa.SongListManager
+namespace R55555LLING.ePEa.SelectSong.SongDataControl
 {
     public class SongListData : MonoBehaviour
     {
         static SongListData songListData;
-        public static SongListData GetSongList { get { return songListData; } }
+        public static SongListData GetSongListData { get { return songListData; } }
 
         //곡 데이터 리스트
-        static Dictionary<int, SongData> songList = new Dictionary<int, SongData>();
+        static Dictionary<int, SongData> songList;
         public static Dictionary<int, SongData> GetSonglist { get { return songList; } }
 
         [SerializeField]
         TextAsset m_songList;
 
-        // Start is called before the first frame update
         void Awake()
         {
-            if (!GetSongList)
+            if (!GetSongListData)
             {
                 songListData = this;
+                songList = new Dictionary<int, SongData>();
                 LoadSongdata();
             }
             else
