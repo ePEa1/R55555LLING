@@ -10,9 +10,41 @@
   {
     "Id": 102,
     "SongName": "RE:UNION - Duo Blade Against",
-    "Composer": "Ice vs Morimori Atsushi",
+    "Composer": "Ice vs モリモリあつし",
     "Level": [ 5, 12, 15 ],
     "SongFileName": "ReUnionDuoBlade",
     "TrialTime": [ 20.0, 45.0 ]
+  },
+  {
+    "Id": 103,
+    "SongName": "最強STRONGER",
+    "Composer": "REDALiCE vs USAO",
+    "Level": [ 4, 7, 11 ],
+    "SongFileName": "Stronger",
+    "TrialTime": [ 65.0, 95.0 ]
+  },
+  {
+    "Id": 104,
+    "SongName": "Fracture Ray",
+    "Composer": "Sakuzyo",
+    "Level": [ 2, 6, 14 ],
+    "SongFileName": "FractureRay",
+    "TrialTime": [ 16.0, 43.0 ]
+  },
+  {
+    "Id": 105,
+    "SongName": "Sheriruth",
+    "Composer": "Team Grimoire",
+    "Level": [ 5, 10, 13 ],
+    "SongFileName": "Sheriruth",
+    "TrialTime": [ 36.0, 60.0 ]
+  },
+  {
+    "Id": 106,
+    "SongName": "Grievous Lady",
+    "Composer": "Team Grimoire",
+    "Level": [ 7, 11, 15 ],
+    "SongFileName": "GrievousLady",
+    "TrialTime": [ 0.0, 38.0 ]
   }
 ]
