@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using R55555LLING.ePEa.SelectSong.SongDataControl;
+using R55555LLING.ePEa.DataControl;
 
 namespace R55555LLING.ePEa.SelectSong
 {

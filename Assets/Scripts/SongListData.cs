@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace R55555LLING.ePEa.SelectSong.SongDataControl
+namespace R55555LLING.ePEa.DataControl
 {
     public class SongListData : MonoBehaviour
     {
@@ -38,12 +38,14 @@ namespace R55555LLING.ePEa.SelectSong.SongDataControl
             foreach(SongData song in songs)
             {
                 songList.Add(song.Id, song);
+                
                 Debug.Log("[" + song.Id + "]");
                 Debug.Log("Song Name : " + song.SongName);
                 Debug.Log("Composer : " + song.Composer);
                 Debug.Log("Easy : " + song.Level[0]);
                 Debug.Log("Normal : " + song.Level[1]);
                 Debug.Log("Hard : " + song.Level[2]);
+                
             }
         }
     }
@@ -60,5 +62,7 @@ namespace R55555LLING.ePEa.SelectSong.SongDataControl
         public string SongFileName; //곡 파일 이름
 
         public float[] TrialTime; //미리듣기 시간 범위
+
+        public float Bpm; //곡 bpm
     }
 }

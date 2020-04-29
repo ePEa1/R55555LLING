@@ -12,6 +12,11 @@ public static class JsonHelper
         return wrapper.items;
     }
 
+    public static string ToJson<T>(object obj)
+    {
+        return JsonUtility.ToJson(obj);
+    }
+
     [System.Serializable]
     private class Wrapper<T>
     {
