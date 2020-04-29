@@ -4,32 +4,37 @@ using UnityEngine;
 
 namespace R55555LLING.ePEa.DataControl
 {
-    public class NoteData : MonoBehaviour
+    public class PattonData : MonoBehaviour
     {
     }
 
     [System.Serializable]
-    public class NoteDatas
+    public class PattonDatas
     {
+        public int maxNote;
+
         public DTouchNote[] touchNote;
-        public DHoldNote[] holdNote;
+        public DLongNote[] longNote;
         public DCurveNote[] curveNote;
         public DSwipeNote[] swipeNote;
     }
 
+    [System.Serializable]
     public class DTouchNote
     {
         public double time;
         public float angle;
     }
 
-    public class DHoldNote
+    [System.Serializable]
+    public class DLongNote
     {
         public double startTime;
         public double endTime;
         public float angle;
     }
 
+    [System.Serializable]
     public class DCurveNote
     {
         public double startTime;
@@ -38,6 +43,7 @@ namespace R55555LLING.ePEa.DataControl
         public float endAngle;
     }
 
+    [System.Serializable]
     public class DSwipeNote
     {
         public double time;

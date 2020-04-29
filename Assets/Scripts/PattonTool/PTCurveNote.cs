@@ -82,11 +82,21 @@ public class PTCurveNote : MonoBehaviour
             Vector3 inVec = new Vector3(Mathf.Cos(m_inAngle * PTPlayManager.g_corVec), Mathf.Sin(m_inAngle * PTPlayManager.g_corVec), 0);
             m_inPoint.transform.position = inVec * (PTPlayManager.g_inLine + m_inLen * (PTPlayManager.g_outLine - PTPlayManager.g_inLine)) + Vector3.forward * (PTPlayManager.g_depth - m_inLen * PTPlayManager.g_depth);
         }
+        else
+        {
+            m_inPoint.gameObject.SetActive(false);
+            m_outPoint.gameObject.SetActive(false);
+            m_isDraw = false;
+        }
 
         //안쪽 라인 계산
         if (PTPlayManager.g_time >= m_endTime - PTPlayManager.g_moveSpeed)
         {
             m_inLen = Mathf.Min(1, (float)(PTPlayManager.g_time - (m_endTime - PTPlayManager.g_moveSpeed)) * (1.0f / (float)PTPlayManager.g_moveSpeed));
+        }
+        else
+        {
+            m_inLen = 0;
         }
 
         //다 맞췄으면 점 삭제
@@ -127,6 +137,8 @@ public class PTCurveNote : MonoBehaviour
         }
         else
         {
+            m_inLen = 0;
+            m_outLen = 1;
             m_line.positionCount = 0;
         }
     }

@@ -210,6 +210,8 @@ GameObject:
   - component: {fileID: 97841683}
   - component: {fileID: 97841685}
   - component: {fileID: 97841686}
+  - component: {fileID: 97841687}
+  - component: {fileID: 97841688}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -279,6 +281,55 @@ MonoBehaviour:
   - {fileID: 1900314476}
   - {fileID: 375518088}
   - {fileID: 305768537}
+  m_nowSong:
+    Id: 0
+    SongName: 
+    Composer: 
+    Level: 
+    SongFileName: 
+    TrialTime: []
+    Bpm: 0
+--- !u!114 &97841687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97841682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fde32cee91da68419fb08a6b3f4a10d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_notes:
+  - {fileID: 1009259483}
+  - {fileID: 1900314476}
+  - {fileID: 375518088}
+  - {fileID: 305768537}
+  m_maxNote: {fileID: 249275308}
+--- !u!114 &97841688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97841682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff8b5e2d1e619414682fe72daa40fa33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notes:
+  - {fileID: 899851909961519213, guid: 7753b581a048ceb48a0f7390641443c5, type: 3}
+  - {fileID: 8838545861980062997, guid: 4d13ca2a0165771408a38ed2f7c62841, type: 3}
+  - {fileID: 21154127471405025, guid: e26b5b311589f4243bf2ec72c2b19264, type: 3}
+  - {fileID: 1690637745068072706, guid: 7556068e64cb18e41ab7abb1bd65df1c, type: 3}
+  noteParent:
+  - {fileID: 1009259484}
+  - {fileID: 1900314477}
+  - {fileID: 375518089}
+  - {fileID: 305768538}
+  m_id: {fileID: 291508207}
 --- !u!1 &210897070
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,6 +873,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 97841688}
+        m_MethodName: LoadPatton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1230,7 +1292,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ff70eb1a57ead6c49a1333abd2adcc1b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.038
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4147,7 +4209,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1830054256}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 97841687}
+        m_MethodName: PattonSave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1830054256
 MonoBehaviour:
   m_ObjectHideFlags: 0

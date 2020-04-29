@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7103307660723761609}
   - component: {fileID: 687150461550188723}
   m_Layer: 0
-  m_Name: Note
+  m_Name: PTouchNote
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,5 +92,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed6369ca38c9a64697879fefac6c17d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_clearTime: 7.058823529411765
+  m_clearTime: 4
   m_angle: 225

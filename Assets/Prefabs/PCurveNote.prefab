@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 899851909961519215}
   - component: {fileID: 899851909961519214}
   m_Layer: 0
-  m_Name: Curve
+  m_Name: PCurveNote
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -274,14 +274,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9df43200f8396458716319757ae60b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_startTime: 1.411764705882353
-  m_endTime: 2.823529411764706
+  m_startTime: 1
+  m_endTime: 2
   m_startDir: 135
   m_endDir: 405
-  m_outPoint: {fileID: 899851910340391009}
-  m_inPoint: {fileID: 899851908885596323}
-  m_line: {fileID: 899851909079907401}
-  m_lineAngle: 10
 --- !u!1 &899851910340391008
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +337,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d7e33ebb2aba7384ab0c614f6520ee70, type: 2}
+  - {fileID: 2100000, guid: 3f732b90fda8c484092b5b60308ecd2d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
