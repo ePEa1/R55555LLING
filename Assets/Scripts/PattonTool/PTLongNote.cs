@@ -8,6 +8,9 @@ public class PTLongNote : MonoBehaviour
     public double m_endTime;
     public float m_angle;
 
+    double startTime;
+    double endTime;
+
     LineRenderer m_lr;
 
     float m_outLen = 0.0f;
@@ -16,16 +19,22 @@ public class PTLongNote : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        startTime = m_startTime * (60.0 / PTPattonManager.m_nowSong.BPM);
+        endTime = m_endTime * (60.0 / PTPattonManager.m_nowSong.BPM);
+
         m_lr = GetComponent<LineRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (PTPlayManager.g_time >= m_startTime - PTPlayManager.g_moveSpeed)
+        startTime = m_startTime * (60.0 / PTPattonManager.m_nowSong.BPM);
+        endTime = m_endTime * (60.0 / PTPattonManager.m_nowSong.BPM);
+
+        if (PTPlayManager.g_time >= startTime - PTPlayManager.g_moveSpeed)
         {
             m_lr.enabled = true;
-            m_outLen = 1.0f - Mathf.Max(0, (float)(m_startTime - PTPlayManager.g_time) * (1.0f / (float)PTPlayManager.g_moveSpeed));
+            m_outLen = 1.0f - Mathf.Max(0, (float)(startTime - PTPlayManager.g_time) * (1.0f / (float)PTPlayManager.g_moveSpeed));
 
             float outPos = m_outLen * (PTPlayManager.g_outLine - PTPlayManager.g_inLine) + PTPlayManager.g_inLine;
             float inPos = m_inLen * (PTPlayManager.g_outLine - PTPlayManager.g_inLine) + PTPlayManager.g_inLine;
@@ -40,9 +49,9 @@ public class PTLongNote : MonoBehaviour
         }
 
         //안쪽 라인 계산
-        if (PTPlayManager.g_time >= m_endTime - PTPlayManager.g_moveSpeed)
+        if (PTPlayManager.g_time >= endTime - PTPlayManager.g_moveSpeed)
         {
-            m_inLen = Mathf.Min(1, (float)(PTPlayManager.g_time - (m_endTime - PTPlayManager.g_moveSpeed)) * (1.0f / (float)PTPlayManager.g_moveSpeed));
+            m_inLen = Mathf.Min(1, (float)(PTPlayManager.g_time - (endTime - PTPlayManager.g_moveSpeed)) * (1.0f / (float)PTPlayManager.g_moveSpeed));
         }
         else
         {
@@ -50,7 +59,7 @@ public class PTLongNote : MonoBehaviour
         }
 
         //다 맞췄으면 점 삭제
-        if (PTPlayManager.g_time >= m_endTime)
+        if (PTPlayManager.g_time >= endTime)
         {
             m_lr.enabled = false;
         }

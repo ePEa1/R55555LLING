@@ -45,7 +45,7 @@ namespace R55555LLING.ePEa.DataControl
                 Debug.Log("Easy : " + song.Level[0]);
                 Debug.Log("Normal : " + song.Level[1]);
                 Debug.Log("Hard : " + song.Level[2]);
-                
+                Debug.Log("BPM : " + song.BPM);
             }
         }
     }
@@ -63,6 +63,6 @@ namespace R55555LLING.ePEa.DataControl
 
         public float[] TrialTime; //미리듣기 시간 범위
 
-        public float Bpm; //곡 bpm
+        public float BPM; //곡 bpm
     }
 }

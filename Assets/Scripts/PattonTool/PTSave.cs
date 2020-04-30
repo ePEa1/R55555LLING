@@ -12,25 +12,19 @@ public class PTSave : MonoBehaviour
     [SerializeField]
     Text m_maxNote;
 
-    PTPattonManager m_pm;
     string m_path = "Assets/Resources/Pattons/";
-
-    private void Awake()
-    {
-        m_pm = GetComponent<PTPattonManager>();
-    }
 
     public void PattonSave()
     {
         //Debug.Log(m_pm.m_nowSong.Id);
-        if (m_pm.m_nowSong.Id != 0)
+        if (PTPattonManager.m_nowSong.Id != 0)
         {
             Debug.Log("Saving...");
 
             PattonDatas data = NoteToData();
             data.maxNote = int.Parse(m_maxNote.text);
 
-            FileStream f = new FileStream(m_path + m_pm.m_nowSong.Id + ".txt", FileMode.Create, FileAccess.Write);
+            FileStream f = new FileStream(m_path + PTPattonManager.m_nowSong.Id + ".txt", FileMode.Create, FileAccess.Write);
             string json = JsonHelper.ToJson<PattonDatas>(data);
             StreamWriter writer = new StreamWriter(f, System.Text.Encoding.Unicode);
             writer.WriteLine(json);

@@ -281,14 +281,6 @@ MonoBehaviour:
   - {fileID: 1900314476}
   - {fileID: 375518088}
   - {fileID: 305768537}
-  m_nowSong:
-    Id: 0
-    SongName: 
-    Composer: 
-    Level: 
-    SongFileName: 
-    TrialTime: []
-    Bpm: 0
 --- !u!114 &97841687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,17 +843,6 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 393903716}
-        m_MethodName: ChangeMusic
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 97841686}
         m_MethodName: SetSongId
         m_Mode: 1
@@ -875,6 +856,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 97841688}
         m_MethodName: LoadPatton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 393903716}
+        m_MethodName: ChangeMusic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1290,7 +1282,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ff70eb1a57ead6c49a1333abd2adcc1b, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.038
   m_Pitch: 1
@@ -1402,6 +1394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca19415359d307428252bd2ced57324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_if: {fileID: 291508207}
 --- !u!1 &428332328
 GameObject:
   m_ObjectHideFlags: 0

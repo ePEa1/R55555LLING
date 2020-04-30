@@ -10,6 +10,9 @@ public class PTCurveNote : MonoBehaviour
     public float m_startDir;
     public float m_endDir;
 
+    double startTime;
+    double endTime;
+
     float m_outLen = 1.0f; //바깥쪽 라인(1 -> 0)
     float m_inLen = 0.0f; //안쪽 라인(0 -> 1)
 
@@ -30,21 +33,29 @@ public class PTCurveNote : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        startTime = m_startTime * (60.0 / PTPattonManager.m_nowSong.BPM);
+        endTime = m_endTime * (60.0 / PTPattonManager.m_nowSong.BPM);
+
         m_outPoint = transform.GetChild(2);
         m_inPoint = transform.GetChild(1);
         m_line = transform.GetChild(0).GetComponent<LineRenderer>();
 
         m_inLen = 0;
         m_angle = m_endDir - m_startDir;
-        m_dis = m_endTime - m_startTime;
-        m_cor = (float)(m_angle / m_dis);
-        m_getTime = (float)(m_dis / m_angle);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (PTPlayManager.g_time >= m_startTime - PTPlayManager.g_moveSpeed)
+        startTime = m_startTime * (60.0 / PTPattonManager.m_nowSong.BPM);
+        endTime = m_endTime * (60.0 / PTPattonManager.m_nowSong.BPM);
+
+        m_dis = endTime - startTime;
+        m_cor = (float)(m_angle / m_dis);
+        m_getTime = (float)(m_dis / m_angle);
+
+        if (PTPlayManager.g_time >= startTime - PTPlayManager.g_moveSpeed)
         {
             //점 생성
             m_inPoint.gameObject.SetActive(true);
@@ -52,11 +63,11 @@ public class PTCurveNote : MonoBehaviour
             m_isDraw = true;
 
             //바깥 라인 계산
-            m_outLen = Mathf.Max(0, (float)(m_startTime - PTPlayManager.g_time) * (1.0f / (float)PTPlayManager.g_moveSpeed));
+            m_outLen = Mathf.Max(0, (float)(startTime - PTPlayManager.g_time) * (1.0f / (float)PTPlayManager.g_moveSpeed));
 
             //바깥쪽 각도, 안쪽 각도 계산
-            m_outAngle = m_startDir + (float)(PTPlayManager.g_time - (m_startTime - m_outLen * PTPlayManager.g_moveSpeed)) * m_cor;
-            m_inAngle = m_startDir + (float)(PTPlayManager.g_time - (m_startTime - (1 - m_inLen) * PTPlayManager.g_moveSpeed)) * m_cor;
+            m_outAngle = m_startDir + (float)(PTPlayManager.g_time - (startTime - m_outLen * PTPlayManager.g_moveSpeed)) * m_cor;
+            m_inAngle = m_startDir + (float)(PTPlayManager.g_time - (startTime - (1 - m_inLen) * PTPlayManager.g_moveSpeed)) * m_cor;
 
             //회전 방향에 따라서 각도 최대/최소값 설정
             if (m_startDir>m_endDir)
@@ -90,9 +101,9 @@ public class PTCurveNote : MonoBehaviour
         }
 
         //안쪽 라인 계산
-        if (PTPlayManager.g_time >= m_endTime - PTPlayManager.g_moveSpeed)
+        if (PTPlayManager.g_time >= endTime - PTPlayManager.g_moveSpeed)
         {
-            m_inLen = Mathf.Min(1, (float)(PTPlayManager.g_time - (m_endTime - PTPlayManager.g_moveSpeed)) * (1.0f / (float)PTPlayManager.g_moveSpeed));
+            m_inLen = Mathf.Min(1, (float)(PTPlayManager.g_time - (endTime - PTPlayManager.g_moveSpeed)) * (1.0f / (float)PTPlayManager.g_moveSpeed));
         }
         else
         {
@@ -100,7 +111,7 @@ public class PTCurveNote : MonoBehaviour
         }
 
         //다 맞췄으면 점 삭제
-        if (PTPlayManager.g_time >= m_endTime)
+        if (PTPlayManager.g_time >= endTime)
         {
             m_inPoint.gameObject.SetActive(false);
             m_outPoint.gameObject.SetActive(false);
@@ -125,7 +136,7 @@ public class PTCurveNote : MonoBehaviour
             for (int i = 0; i < pointCount; i++)
             {
                 float ang = m_outAngle + i * PTPlayManager.g_lineAngle * neg; //보간하려고 하는 점의 각도
-                float t = (float)((ang - m_startDir) * m_getTime + m_startTime); //보간하려고 하는 점의 시간값
+                float t = (float)((ang - m_startDir) * m_getTime + startTime); //보간하려고 하는 점의 시간값
 
                 //보간점의 시간위치 (0(in) ~ 1(out))
                 float tPower = (float)((PTPlayManager.g_moveSpeed - (float)(t - PTPlayManager.g_time)) / PTPlayManager.g_moveSpeed);

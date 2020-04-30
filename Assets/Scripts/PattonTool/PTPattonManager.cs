@@ -16,7 +16,7 @@ public class PTPattonManager : MonoBehaviour
     [SerializeField]
     GameObject[] m_notes;
 
-    public SongData m_nowSong;
+    public static SongData m_nowSong;
 
     // Start is called before the first frame update
     void Awake()
