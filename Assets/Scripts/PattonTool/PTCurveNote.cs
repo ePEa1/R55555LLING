@@ -54,6 +54,7 @@ public class PTCurveNote : MonoBehaviour
         m_dis = endTime - startTime;
         m_cor = (float)(m_angle / m_dis);
         m_getTime = (float)(m_dis / m_angle);
+        m_angle = m_endDir - m_startDir;
 
         if (PTPlayManager.g_time >= startTime - PTPlayManager.g_moveSpeed)
         {
