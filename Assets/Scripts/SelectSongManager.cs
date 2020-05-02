@@ -23,8 +23,13 @@ namespace R55555LLING.ePEa.SelectSong
         static SongData g_selectSong;
         public static SongData GetSelectSong { get { return g_selectSong; } }
 
+        public static int g_selectSongNumber = 0;
+
         [SerializeField]
         AudioSource m_ac;
+
+        [SerializeField]
+        RectTransform m_songBarList;
 
         void Awake()
         {
@@ -32,7 +37,7 @@ namespace R55555LLING.ePEa.SelectSong
             {
                 selectSongManager = this;
                 g_diffi = _Difficult.EASY;
-                g_selectSong = SongListData.GetSonglist[0];
+                g_selectSong = SongListData.GetSonglist[101];
             }
             else
             {
@@ -53,7 +58,10 @@ namespace R55555LLING.ePEa.SelectSong
         //곡 변경될 때 실행시킬 이벤트
         void ChangeSongEvent()
         {
+            for (int i = 0; i < m_songBarList.childCount; i++)
+            {
 
+            }
         }
     }
 }
